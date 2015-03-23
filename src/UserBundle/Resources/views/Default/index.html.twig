@@ -1,0 +1,64 @@
+{% extends "::base.html.twig" %}
+{% block stylesheet %}
+    <?php
+	    session_start();
+	?>
+    <?php require_once("includes/connection.php"); ?>
+    <?php
+
+	if(isset($_SESSION["session_username"])){
+	// вывод "Session is set"; // в целях проверки
+	header("Location: intropage.php");
+	}
+
+	if(isset($_POST["login"])){
+
+	if(!empty($_POST['username']) && !empty($_POST['password'])) {
+	$username=$_POST['username'];
+	$password=$_POST['password'];
+	$query =mysql_query("SELECT * FROM usertbl WHEREusername='".$username."' AND password='".$password."'");
+	$numrows=mysql_num_rows($query);
+	if($numrows!=0)
+        {
+            while($row=mysql_fetch_assoc($query))
+            {
+	            $dbusername=$row['username'];
+                $dbpassword=$row['password'];
+            }
+            if($username == $dbusername && $password == $dbpassword)
+            {
+	            // старое место расположения
+                //  session_start();
+	            $_SESSION['session_username']=$username;
+                /* Перенаправление браузера */
+                header("Location: intropage.php");
+	        }
+	    } else {
+	        //  $message = "Invalid username or password!";
+
+	        echo  "Invalid username or password!";
+            }
+	    } else {
+            $message = "All fields are required!";
+	    }
+	    }
+    ?>
+{% endblock %}
+
+{% block body %}
+    <div id="center">
+    <div id="loginform">
+    <section class= "main">
+    <fieldset>
+    <legend><h1 align="left">Main Page</h1></legend>
+    <form action="" method="POST" name="form1">
+    <h3 {#align="right"#}><label>Username: <input type="text" name="name" maxlength="20"></label></h3>
+    <h3 {#align="right"#}><label>Password: <input type="password" name="name" maxlength="36"></label></h3>
+    <p {#align="right"#}>if you haven't registered yet. Then <a href="regform.html">register</a>
+    <p>To login you have to fill in the username field with your student number</p>
+    </form>
+    </fieldset>    </section>
+    </div>
+     </div> <!-- Конец центральной колонки -->
+{% endblock %}
+

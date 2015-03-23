@@ -1,0 +1,55 @@
+{% extends "::base.html.twig" %}
+{% block stylesheets %}
+    <style>
+        ul.rega{
+            width:350px;
+        }
+
+        ul.rega li{
+            float:left;
+            width:100px;
+            list-style:none;
+        }
+
+        ul.rega li.in{
+            width:250px;
+            list-style:none;
+        }
+    </style>
+
+{% endblock %}
+{% block body %}
+<div id="regforma">
+    <fieldset>
+        <legend>
+            <h1 align="left">Registering Form</h1>
+        </legend>
+        <form action="" method="" name="form1">
+            <ul class="rega">
+                <li><label>First Name:</label></li>
+                <li class="in"><input type="text" name="firstname" maxlength="20"></li>
+            </ul>
+            <ul class="rega">
+                <li><label>Last Name:</label></li>
+                <li class="in"><input type="text" name="lastname" maxlength="20"></li>
+            </ul>
+            <ul class="rega">
+                <li><label>Username</label></li>
+                <li class="in"><input type="text" name="username" maxlength="20"></li>
+            </ul>
+            <ul class="rega">
+                <li><label>Password:</label></li>
+                <li class="in"><input type="password" name="password" maxlength="36"></li>
+            </ul>
+            <ul class="rega">
+                <li><label>Confirm:</label></li>
+                <li class="in"><input type="text" name="confirm" maxlength="20"></li>
+            </ul>
+            <ul class="rega">
+                <li></li>
+                <li class="in"><p><input type="image" src="{{ asset('bundles/user/images/accept.png') }}" name="imageButton" width="85" height="30"></p></li>
+            </ul>
+        </form>
+    </fieldset>
+</div>
+{% endblock %}

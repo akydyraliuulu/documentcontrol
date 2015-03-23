@@ -1,0 +1,46 @@
+{% extends "::base.html.twig" %}
+{% block stylesheets %}
+    <style>
+        ul.rega{
+            width:350px;
+        }
+
+        ul.rega li{
+            float:left;
+            width:100px;
+            list-style:none;
+        }
+
+        ul.rega li.in{
+            width:250px;
+            list-style:none;
+        }
+    </style>
+{% endblock %}
+{% block body %}
+    <fieldset>
+        <legend><h1 align="left">User Page</h1></legend>
+        <form action="formdata.php" method="POST" name="form1">
+            <ul class="rega">
+                <li><label>To whom:</label></li>
+                <li class="in"><input type="text" name="towhom" maxlength="20"></li>
+            </ul>
+            <ul class="rega">
+                <li><label>Subject:</label></li>
+                <li class="in"><input type="text" name="subject" maxlength="20"></li>
+            </ul>
+            <ul class="rega">
+                <li><label>Type:</label></li>
+                <li class="in"><input type="text" name="type" maxlength="20"></li>
+            </ul>
+            <ul class="rega">
+                <li><label>Message:</label></li>
+                <li class="in"><textarea name="message" cols="30" rows="10"></textarea></li>
+            </ul>
+            <ul class="rega">
+                <li></li>
+                <li class="in"><p><input type="image" src="{{ asset('bundles/user/images/sendo.jpg') }}" name="imageButton" width="90" height="30"></p></li>
+            </ul>
+        </form>
+    </fieldset>
+{% endblock %}

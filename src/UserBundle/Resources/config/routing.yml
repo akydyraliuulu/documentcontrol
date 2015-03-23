@@ -1,0 +1,19 @@
+site_homepage:
+    path:     /index
+    defaults: { _controller: UserBundle:Default:index }
+
+reg_page:
+  path: /register
+  defaults: { _controller: UserBundle:Default:register }
+
+change_pass:
+  path: /changepass
+  defaults: { _controller: UserBundle:Default:changepass }
+
+user_page:
+  path: /userpage
+  defaults: { _controller: UserBundle:Default:userpage }
+
+document:
+  path: /document
+  defaults: { _controller: UserBundle:Default:document }

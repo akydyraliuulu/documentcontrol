@@ -1,0 +1,73 @@
+<!-- /src/YourIdentifier/YourBundle/Resources/views/Page/static/base2.html.twig -->
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en-US">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>{% block title %}Переменная часть заголовка по умолчанию{% endblock %} - название постоянной части</title>
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link rel ="shortcut icon" href= "favicon.ico" />
+    <link href="{{ asset('bundles/user/css/main.css') }}" rel="stylesheet" media="screen">
+    {% block stylesheets %}
+    {% endblock %}
+</head>
+<body>
+<div id="topmenu">
+    <a href="index">Авторизация</a> |
+    <a href="register">Регистрация</a>
+</div> <!-- Конец powered -->
+<img src="{{ asset('bundles/user/images/logo.png') }}" id="right_text" height="80px" width="80px" />
+<header id="header">
+    <h2 color="white">ManasCloud </h2>
+</header>
+<div id="columns">
+
+    <div id="left">
+        <aside class= "sidebar-left">
+            {% block sidebarleft %}
+                <ul>
+                    <li><a href="index">Авторизация</a></li>
+                    <li><a href="register">Регистрация</a></li>
+                    <li><a href="changepass">Новый пароль</a></li>
+                    <li><a href="userpage">Личный кабинет</a></li>
+                    <li><a href="document">Написать</a></li>
+                </ul>
+            {% endblock %}
+        </aside>
+    </div><!-- Конец левой колонки -->
+{% block body %}
+{% endblock %}
+{% block javascripts %}{% endblock %}
+
+
+    <div id="right"><aside class="sidebar-right">
+
+            <h2>Правая колонка</h2>
+            также и центральная колонка автоматически
+            подстроится под высоту боковых колонок, если
+            контент в них станет длиннее контента центральной
+            колонки
+        </aside>
+    </div> <!-- Конец правой колонки -->
+
+
+</div> <!-- Конец id="columns" -->
+    <div id="footer"> <!-- Начало подвала -->
+        ПОДВАЛ СТРАНИЦЫ
+        <br>
+        <br>причем ширина боковых колонок зафиксирована 300 и 300 пикселей)
+        {% block footer %}
+            Контент футера
+        {% endblock %}
+    </div> <!-- Конец подвала -->
+
+    <div id="powered">
+
+        <a href="index">Авторизация</a> |
+        <a href="register">Регистрация</a><span>Команда Oakmond Group :: Сделано на <a href="www.symfony.com">Symfony2</a>  © Все права защищены </span>
+    </div>
+
+</body>
+</html>
